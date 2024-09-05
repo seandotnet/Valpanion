@@ -9,6 +9,8 @@ Lock your favorite agents, Get detailed stats and match details, and unveil hidd
 - Region switcher built-in.
 - Get all player details including hidden names
 - Manual lock button for instalocking.
+- See which side you will start before game begins
+- Favourite agents.
 
 ### Getting Started
 

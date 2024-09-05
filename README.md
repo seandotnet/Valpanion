@@ -1,4 +1,4 @@
-# Valpanion V1.1.0
+# Valpanion
 
 **Full open-srouced Valorant Companion app, side project.**  
 Lock your favorite agents, Get detailed stats and match details, and unveil hidden player names all within a simple GUI.

@@ -16,6 +16,7 @@ from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer, QSize, QPoint
 from valclient.client import Client
 import requests
 import urllib.parse
+from pathlib import Path
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -117,6 +118,7 @@ class ValorantApp(QMainWindow):
         self.lock_timer = None
         self.countdown_timer = None
         self.countdown_seconds = 5
+        self.favorites_file = Path.home() / ".valpanion_favorites.json"
         self.favorites = self.load_favorites()
         self.map_names = {
             "/Game/Maps/Ascent/Ascent": "Ascent",
@@ -297,14 +299,32 @@ class ValorantApp(QMainWindow):
             self.favorites_combo.addItem(agent)
 
     def toggle_favorite(self):
-        current_agent = self.agent_combo.currentText()
-        if current_agent in self.favorites:
-            self.favorites.remove(current_agent)
-        else:
-            self.favorites.append(current_agent)
-        self.save_favorites()
-        self.populate_favorites_combo()
-        self.update_favorite_button()
+        try:
+            current_agent = self.agent_combo.currentText()
+            if current_agent in self.favorites:
+                self.favorites.remove(current_agent)
+                logging.info(f"Removed {current_agent} from favorites")
+            else:
+                self.favorites.append(current_agent)
+                logging.info(f"Added {current_agent} to favorites")
+            
+            self.save_favorites()
+            self.populate_favorites_combo()
+            self.update_favorite_button()
+            logging.info("Favorites updated successfully")
+        except Exception as e:
+            logging.error(f"Error in toggle_favorite: {e}")
+            # Optionally, you can show an error message to the user
+            QMessageBox.critical(self, "Error", f"Failed to update favorites: {str(e)}")
+
+    def save_favorites(self):
+        try:
+            with open(self.favorites_file, 'w') as f:
+                json.dump(self.favorites, f)
+            logging.info(f"Favorites saved to: {self.favorites_file}")
+        except Exception as e:
+            logging.error(f"Error saving favorites: {e}")
+            raise  # Re-raise the exception to be caught in toggle_favorite
 
     def update_favorite_button(self):
         if self.agent_combo.count() > 0:
@@ -331,14 +351,17 @@ class ValorantApp(QMainWindow):
 
     def load_favorites(self):
         try:
-            with open('favorites.json', 'r') as f:
-                return json.load(f)
-        except FileNotFoundError:
+            if self.favorites_file.exists():
+                with open(self.favorites_file, 'r') as f:
+                    favorites = json.load(f)
+                logging.info(f"Favorites loaded from: {self.favorites_file}")
+                return favorites
+            else:
+                logging.info(f"Favorites file not found at: {self.favorites_file}")
+                return []
+        except Exception as e:
+            logging.error(f"Error loading favorites: {e}")
             return []
-
-    def save_favorites(self):
-        with open('favorites.json', 'w') as f:
-            json.dump(self.favorites, f)
 
     def lock_agent(self):
         if not self.client:

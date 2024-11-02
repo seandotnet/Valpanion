@@ -11,6 +11,10 @@ Lock your favorite agents, Get detailed stats and match details, and unveil hidd
 - Manual lock button for instalocking.
 - See which side you will start before game begins
 - Favourite agents.
+- See other players country flags
+- Dodge Button for dodging games
+- Tracker button for viewing a players tracker instantly
+- See all players K/D's Pre-Game.
 
 ### Getting Started
 

@@ -15,6 +15,8 @@ Lock your favorite agents, Get detailed stats and match details, and unveil hidd
 - Dodge Button for dodging games
 - Tracker button for viewing a players tracker instantly
 - See all players K/D's Pre-Game.
+- See who is queued together
+  
 
 ### Getting Started
 

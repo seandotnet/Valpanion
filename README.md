@@ -3,6 +3,8 @@
 **Full open-srouced Valorant Companion app, side project.**  
 Lock your favorite agents, Get detailed stats and match details, and unveil hidden player names all within a simple GUI.
 
+**Check releases for new releases and EXE Build**
+
 ## Features
 
 - Select an agent to instalock from a dropdown box!

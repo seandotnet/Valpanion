@@ -1,0 +1,35 @@
+# Valpanion Installation Guide
+
+## There is a EXE Build included. (https://www.virustotal.com/gui/file/35f591261b967d3b38c2620d8fc76545d14aaa13f479b5d27734558e93d958b1?nocache=1)
+## This has not been tested so use at your own risk.
+## If you don't wish to use the EXE follow the steps below.
+
+## 1. Install Python
+1. Visit [Python's official website](https://www.python.org/downloads/)
+2. Download the latest version of Python (3.8 or newer)
+3. Run the installer
+4. **Important**: Check the box that says "Add Python to PATH" during installation
+5. Complete the installation
+
+## 2. Verify Python Installation
+1. Open Command Prompt (Windows) or Terminal (Mac/Linux)
+2. Type the following command: python --version
+3. You should see something like Python 3.x.x##
+
+## 3. Install Required Packages
+1. Open Command Prompt (Windows) or Terminal (Mac/Linux)
+2. Navigate to the project directory 
+3. Install all required packages using "pip install -r requirements.txt"
+
+## 4. Run the Application
+1. Navigate to the Valpanion Directory and click on the file explorer bar and type cmd as shown: https://ibb.co/ZTGfjCN
+2. Type "py main.py"
+
+## Troubleshooting:
+
+- If you get "'python' is not recognized": - Reinstall Python and make sure to check "Add Python to PATH"
+- If you get "'pip' is not recognized": - Try using: python -m pip install -r requirements.txt
+- If you get module import errors: - Try upgrading pip: python -m pip install --upgrade pip - Then reinstall requirements: pip install -r requirements.txt
+
+## Note:
+Make sure Valorant is running before starting the application.

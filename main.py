@@ -53,7 +53,8 @@ AGENT_NAMES = {
     "0e38b510-41a8-5780-5e8f-568b2a4f2d6c": "Iso",
     "8e253930-4c05-31dd-1b6c-968525494517": "Omen",
     "1dbf2edd-4729-0984-3115-daa5eed44993": "Clove",
-    "efba5359-4016-a1e5-7626-b1ae76895940": "Vyse"
+    "efba5359-4016-a1e5-7626-b1ae76895940": "Vyse",
+    "b444168c-4e35-8076-db47-ef9bf368f384": "Tejo"
 }
 
 def capitalize_first_letter(s):
